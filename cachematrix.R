@@ -1,10 +1,12 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Coursera R programming
+## Peer Graded Assignment: Programming Assignment 2: Lexical Scoping
+
+## Below are the functions with comment
 
 ## The function makeCacheMatrix creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-		cachedmatrix <- NULL
+	    	cachedmatrix <- NULL
         set <- function(y) {
                 x <<- y
                 cachedmatrix <<- NULL
@@ -22,13 +24,13 @@ makeCacheMatrix <- function(x = matrix()) {
 ## should retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
-		m <- x$getinverse()
-        if(!is.null(m)) {
-                message("getting cached data")
-                return(m)
+		    cachedmatrix <- x$getinverse()
+        if(!is.null(cachedmatrix)) {
+                message("getting cached inversed matrix")
+                return(cachedmatrix)
         }
         data <- x$get()
-        m <- solve(data, ...)
-        x$setinverse(m)
-        m ## Return a matrix that is the inverse of 'x'
+        inversedmatrix <- solve(data, ...)
+        x$setinverse(inversedmatrix)
+        inversedmatrix ## Return a matrix that is the inverse of 'x'
 }
